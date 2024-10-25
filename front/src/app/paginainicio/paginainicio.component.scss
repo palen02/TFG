@@ -1,0 +1,176 @@
+/* Tipografía y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Asegura que ocupen el 100% del viewport */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #F5F7FA;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0077CC; /* Azul moderno */
+    color: white;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+header .session-info p {
+    font-size: 1.1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 15px 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFD700; /* Color dorado para el hover */
+}
+
+main {
+    flex-grow: 1;
+    margin: 40px auto;
+    max-width: 1200px;
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espaciado entre las tarjetas */
+}
+
+/* Diseño de las tarjetas */
+.tarjeta {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta h2 {
+    color: #0077CC;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.test-count {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.test-count span {
+    font-weight: bold;
+    color: #FF6347; /* Color acento rojo suave */
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    background-color: #005BB5; /* Azul oscuro */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #003F7F; /* Azul más oscuro al pasar el ratón */
+    transform: scale(1.05);
+}
+
+/* Estilo de los resultados */
+.resultados-anteriores {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F0F0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.resultado p {
+    font-size: 1.2em;
+    color: #333;
+    flex-grow: 1;
+}
+
+.barra {
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 60%;
+    height: 20px;
+    margin-right: 20px;
+}
+
+.progreso {
+    height: 100%;
+    background-color: #0077CC;
+    transition: width 0.3s ease;
+}
+
+.porcentaje {
+    font-size: 1.2em;
+    color: #0077CC;
+}
+
+.resultado:hover {
+    background-color: #E0E0E0;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #0077CC; /* Mismo color que el header */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

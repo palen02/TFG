@@ -1,0 +1,226 @@
+
+html{
+    box-sizing: border-box;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    background: url('../../assets/fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+
+.contenedor{
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 120%;
+}
+
+.imagen-formulario{
+    background-image: url('../../assets/avatar.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    flex: 0 0 calc(60%);
+    position: relative;
+    
+}
+.imagen-formulario::before{
+   content: '';
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background: linear-gradient(to right,rgba(14, 104, 173, 0.5), rgba(9, 15, 72, 0.5) );
+   
+}
+
+@media(min-width:768px){
+    .imagen-formulario{
+        height: auto;
+        background-position: right;
+    }
+
+}
+@media(min-width:1200px){
+    .imagen-formulario{
+        background-position: center;
+    }
+}
+
+@media(min-width:768px){
+    .contenedor-formulario{
+        display: flex;
+    }
+}
+
+.formulario{
+    padding: 50px;
+    background-color: rgba(9, 15, 72, 0.5); /* Color crema */
+}
+.texto-formulario h2, .input label, .texto-formulario p{
+    color: #fff;
+}
+.texto-formulario h2{
+    font-size: 40px;
+    text-align: center;
+}
+.texto-formulario p{
+    font-size: 22px;
+    text-align: center;
+}
+.input label{
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.password-olvidada{
+    text-align: center;
+}
+.password-olvidada a{
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 22px;
+    text-decoration: none; /* Opcional: elimina el subrayado del enlace */
+    transition: color 0.3s; /* Transición suave del color */
+    cursor: pointer;
+    color: #fff;
+}
+.password-olvidada a:hover{
+    color: #555; /* Color del texto al pasar el mouse sobre él */
+
+}
+
+.input input{
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 5px;
+    outline: none;
+}
+.input input[type="submit"]{
+    background-color: rgba(9, 15, 72, 0.5); /* Color crema */;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    margin-top: 20px;
+    transition: background-color .3s ease-in-out;
+}
+.input input[type="submit"]:hover{
+  
+    cursor: pointer;
+    background-color: rgba(9, 38, 72, 0.5);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+/* app.component.css */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.button1 {
+    background-color: rgba(9, 38, 72, 0.5);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.registrate {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+}
+.registrate1 {
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+}
+
+
+.registrate a {
+    text-decoration: underline;
+    color: #fff; /* Color inicial del texto */
+    transition: color 0.3s; /* Transición de color suave */
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.registrate a:hover {
+    color: #555; /* Color del texto al pasar el mouse sobre él */
+}
+.button1 {
+    background-color: rgba(9, 38, 72, 0.5);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: color 0.3s; /* Transición de color suave */
+}
+.button1:hover{
+    background-color: rgba(9, 38, 72, 0.5);
+}

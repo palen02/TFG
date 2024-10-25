@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Página de Inicio del Usuario</title>
+    <link rel="stylesheet" href="paginainicio.component.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido, Pablo</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tarjeta">
+            <h2>Test por Realizar</h2>
+            <div class="test-count">
+                <p>Tienes <span id="test-pendientes">3</span> tests por hacer</p>
+                <button (click)="irAPaginaTests()">Ver Tests</button>
+            </div>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Resultados de Test Anteriores</h2>
+            <div class="resultados-anteriores">
+                <div class="resultado">
+                    <p>Tareas App Cocina</p>
+                    <div class="barra">
+                        <div class="progreso" style="width: 90%;"></div>
+                    </div>
+                    <span class="porcentaje">90%</span>
+                </div>
+                <div class="resultado">
+                    <p>Documento</p>
+                    <div class="barra">
+                        <div class="progreso" style="width: 65%;"></div>
+                    </div>
+                    <span class="porcentaje">65%</span>
+                </div>
+                <div class="resultado">
+                    <p>Test de Ciencias</p>
+                    <div class="barra">
+                        <div class="progreso" style="width: 80%;"></div>
+                    </div>
+                    <span class="porcentaje">80%</span>
+                </div>
+                <button onclick="location.href='#';">Ver Resultados Completos</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TFG - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

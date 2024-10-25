@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+       
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../normalize.scss">
+        <link rel="stylesheet" href="registro.component.scss">
+    </head>
+<body>
+    <div class="contenedor-formulario contenedor">
+        <div class="imagen-formulario">
+            
+        </div>
+        
+        <form class="formulario"  ngNativeValidate>
+            <div class="texto-formulario">
+                <h2>Registro</h2>
+                
+            </div>
+            <div class="input">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required ngModel>
+            </div>
+            <div class="input">
+                <label for="password" >Contraseña:</label>
+                <input type="password" placeholder="Entre 8 y 16 caracteres" id="password" name="password" required ngModel>
+            </div>
+            <div class="input">
+                <label for="confirm-password">Confirmar Contraseña:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required ngModel>
+            </div>
+            <div class="input">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required ngModel>
+            </div>
+            <div class="input">
+                <input type="submit" value="Registrate">
+            </div>
+            <p class="registrate1">&copy; 2025 TFG - Todos los derechos reservados</p>
+            
+        </form>
+    </div>
+    
+    
+</body>
+
+</html>

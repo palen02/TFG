@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tests por Realizar</title>
+    <link rel="stylesheet" href="paginatests.component.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido, Pablo</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="tarjeta">
+            <h2>Tests por Realizar</h2>
+            <!-- Contenedor de tests -->
+            <div class="test-lista">
+                <!-- Test disponible -->
+                <div class="test">
+                    <div class="info-test">
+                        <p>Test de Matemáticas</p>
+                        <div class="especificaciones">
+                            <span class="tiempo"><i class="fas fa-clock"></i> 30 min</span>
+                            <span class="dificultad dificultad-medio">Medio</span>
+                        </div>
+                    </div>
+                    <button onclick="location.href='test';">Realizar Test</button>
+                </div>
+
+                <div class="test">
+                    <div class="info-test">
+                        <p>Test de Ciencias</p>
+                        <div class="especificaciones">
+                            <span class="tiempo"><i class="fas fa-clock"></i> 45 min</span>
+                            <span class="dificultad dificultad-dificil">Difícil</span>
+                        </div>
+                    </div>
+                    <button onclick="location.href='#';">Realizar Test</button>
+                </div>
+
+                <!-- Si no hay tests disponibles, muestra este mensaje -->
+                <!-- <div class="sin-tests">
+                    <p>¡Felicidades! Ya has realizado todos los tests.</p>
+                </div> -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TFG - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- FontAwesome CDN for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

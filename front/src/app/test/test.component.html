@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contenido del Test</title>
+    <link rel="stylesheet" href="test.component.scss">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Test de Ciencias</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contenedor de cuenta regresiva -->
+        <section class="tarjeta cuenta-regresiva">
+            <h2>Tiempo restante: <span id="tiempo">{{ minutos }}:{{ segundos }}</span></h2>
+        </section>
+
+        <!-- Contenedor de contenido del test -->
+        <section class="tarjeta">
+            <h2>Material del Test</h2>
+            <div class="contenido-test">
+                <!-- Ejemplo de documento PDF -->
+                <iframe src="../assets/06.3 Instrucciones de la presentación final.pdf" width="100%" height="400px"></iframe>
+
+                <!-- Ejemplo de video -->
+                <!-- <video width="100%" height="400px" controls>
+                    <source src="video-ejemplo.mp4" type="video/mp4">
+                    Tu navegador no soporta el formato de video.
+                </video> -->
+
+                <!-- O cualquier otro contenido multimedia -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TFG - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
