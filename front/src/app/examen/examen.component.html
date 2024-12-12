@@ -10,55 +10,39 @@
 </head>
 <body>
     <header>
-        <h1>Test de Ciencias</h1>
-       
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Mi perfil</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <div class="logo-container">
+          <span class="logo-text">Bienvenido, {{ firstname }}</span>
+        </div>
+        <!-- Navegación -->
+        <ul class="nav-links">
+          <li><a href="/inicio">Inicio</a></li>
+          <li><a href="/inicio">Mi perfil</a></li>
+          <li><a href="/login" (click)="cerrarSesion()">Cerrar sesión</a></li>
+          
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <section class="tarjeta">
-            <h2>Preguntas Tipo Test</h2>
-            <form id="test-form" (submit)="enviarExamen($event)">
-                <!-- Pregunta 1: Opción múltiple -->
-                <div class="pregunta">
-                    <h3>1. ¿Cuál de los siguientes planetas es el más cercano al Sol?</h3>
-                    <label><input type="radio" name="pregunta1" value="Mercurio"> Mercurio</label><br>
-                    <label><input type="radio" name="pregunta1" value="Venus"> Venus</label><br>
-                    <label><input type="radio" name="pregunta1" value="Tierra"> Tierra</label><br>
-                    <label><input type="radio" name="pregunta1" value="Marte"> Marte</label>
-                </div>
-
-                <!-- Pregunta 2: Opción múltiple -->
-                <div class="pregunta">
-                    <h3>2. ¿Qué gas es necesario para la respiración de los seres humanos?</h3>
-                    <label><input type="radio" name="pregunta2" value="Oxígeno"> Oxígeno</label><br>
-                    <label><input type="radio" name="pregunta2" value="Nitrógeno"> Nitrógeno</label><br>
-                    <label><input type="radio" name="pregunta2" value="Dióxido de carbono"> Dióxido de carbono</label><br>
-                    <label><input type="radio" name="pregunta2" value="Helio"> Helio</label>
-                </div>
-
-                <!-- Pregunta 3: Rellenar espacio -->
-                <div class="pregunta">
-                    <h3>3. Completa la frase: "El agua se congela a ______ grados Celsius".</h3>
-                    <input type="text" name="pregunta3" placeholder="Escribe tu respuesta aquí" required>
-                </div>
-
-                <!-- Pregunta 4: Rellenar espacio -->
-                <div class="pregunta">
-                    <h3>4. Completa la frase: "La fórmula química del agua es ______".</h3>
-                    <input type="text" name="pregunta4" placeholder="Escribe tu respuesta aquí" required>
-                </div>
-
-                <button type="submit">Enviar Test</button>
-            </form>
-        </section>
+      <section class="tarjeta">
+        <h2>Preguntas Tipo Test</h2>
+        <form id="test-form" (submit)="enviarExamen($event)">
+          <div *ngFor="let pregunta of preguntas; let i = index" class="pregunta">
+            <h3>{{ i + 1 }}. {{ pregunta.pregunta }}</h3>
+            <div *ngFor="let respuesta of pregunta.respuestas; let j = index">
+              <label>
+                <input type="checkbox" [value]="j" [name]="'pregunta' + i" />
+                {{ respuesta }}
+              </label>
+            </div>
+          </div>
+          <button type="submit">Enviar Test</button>
+        </form>
+      </section>
     </main>
+    
+      
 
     <footer>
         <p>&copy; 2025 TFG - Todos los derechos reservados</p>

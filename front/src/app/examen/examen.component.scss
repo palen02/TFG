@@ -20,44 +20,82 @@ body {
 }
 
 header {
-    background-color: #0077CC; /* Azul moderno */
-    color: white;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 2.8em;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-header .session-info p {
-    font-size: 1.1em;
-}
-
-nav ul {
-    list-style: none;
-    padding: 15px 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: white;
+    background-color: #0077CC; /* Morado principal */
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Navbar Container */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-image {
+    height: 40px; /* Ajusta el tamaño del logo */
+    width: auto;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1em;
-    transition: color 0.3s;
-}
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .logo-text:hover {
+    color: #f3e5f5; /* Morado claro */
+    transform: scale(1.1);
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #f3e5f5; /* Morado claro */
+  }
+  
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f3e5f5; /* Morado claro */
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
 
-nav ul li a:hover {
-    color: #FFD700; /* Color dorado para el hover */
-}
 
 main {
     flex-grow: 1;
@@ -93,30 +131,33 @@ main {
 }
 
 .pregunta {
-    margin-bottom: 25px;
-}
+    margin-bottom: 1.5rem;
 
-.pregunta h3 {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
+    h3 {
+      color: #333;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
 
-.pregunta label {
-    font-size: 1.2em;
-    color: #555;
-}
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s;
 
-.pregunta input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2em;
-    margin-top: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-}
+      input {
+        margin-right: 0.5rem;
+      }
 
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+}
 button[type="submit"] {
     background-color: #0077CC;
     color: white;

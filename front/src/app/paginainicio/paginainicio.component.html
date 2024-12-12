@@ -10,22 +10,26 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenido, Pablo</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Mi perfil</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <div class="logo-container">
+          <span class="logo-text">Bienvenido, {{ firstname }}</span>
+        </div>
+        <!-- Navegación -->
+        <ul class="nav-links">
+          <li><a href="/inicio">Inicio</a></li>
+          <li><a href="/inicio">Mi perfil</a></li>
+          <li><a href="/login" (click)="cerrarSesion()">Cerrar sesión</a></li>
+          
+        </ul>
+      </nav>
     </header>
+    
 
     <main>
         <section class="tarjeta">
             <h2>Test por Realizar</h2>
             <div class="test-count">
-                <p>Tienes <span id="test-pendientes">3</span> tests por hacer</p>
+                <p>Tienes <span id="test-pendientes">{{ fileCount }}</span> tests por hacer</p>
                 <button (click)="irAPaginaTests()">Ver Tests</button>
             </div>
         </section>
@@ -33,30 +37,24 @@
         <section class="tarjeta">
             <h2>Resultados de Test Anteriores</h2>
             <div class="resultados-anteriores">
-                <div class="resultado">
-                    <p>Tareas App Cocina</p>
-                    <div class="barra">
-                        <div class="progreso" style="width: 90%;"></div>
-                    </div>
-                    <span class="porcentaje">90%</span>
+              <!-- Iteración sobre los resultados -->
+              <div
+                class="resultado"
+                *ngFor="let resultado of resultados"
+              >
+                <p>{{ resultado.nombre }}</p>
+                <div class="barra">
+                  <div
+                    class="progreso"
+                    [style.width.%]="resultado.progreso"
+                  ></div>
                 </div>
-                <div class="resultado">
-                    <p>Documento</p>
-                    <div class="barra">
-                        <div class="progreso" style="width: 65%;"></div>
-                    </div>
-                    <span class="porcentaje">65%</span>
-                </div>
-                <div class="resultado">
-                    <p>Test de Ciencias</p>
-                    <div class="barra">
-                        <div class="progreso" style="width: 80%;"></div>
-                    </div>
-                    <span class="porcentaje">80%</span>
-                </div>
-                <button onclick="location.href='#';">Ver Resultados Completos</button>
+                <span class="porcentaje">{{ resultado.progreso }}%</span>
+              </div>
+              <button onclick="location.href='#';">Ver Resultados Completos</button>
             </div>
-        </section>
+          </section>
+        
     </main>
 
     <footer>

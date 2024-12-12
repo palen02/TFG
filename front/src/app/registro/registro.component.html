@@ -1,52 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-       
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../normalize.scss">
-        <link rel="stylesheet" href="registro.component.scss">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../normalize.scss">
+    <link rel="stylesheet" href="registro.component.scss">
+</head>
 <body>
     <div class="contenedor-formulario contenedor">
         <div class="imagen-formulario">
-            
+            <!-- Imagen o diseño adicional aquí -->
         </div>
-        
-        <form class="formulario"  ngNativeValidate>
+
+        <form class="formulario" (ngSubmit)="register()" #registerForm="ngForm">
             <div class="texto-formulario">
                 <h2>Registro</h2>
-                
             </div>
+
             <div class="input">
                 <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required ngModel>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    [(ngModel)]="credentials.username"
+                    #username="ngModel"
+                    [class.invalid]="registerFormSubmitted && username.invalid"
+                />
+                <div *ngIf="registerFormSubmitted && username.invalid" class="error">
+                    El campo "Usuario" es obligatorio.
+                </div>
             </div>
+
             <div class="input">
-                <label for="password" >Contraseña:</label>
-                <input type="password" placeholder="Entre 8 y 16 caracteres" id="password" name="password" required ngModel>
+                <label for="password">Contraseña:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    [(ngModel)]="credentials.password"
+                    #password="ngModel"
+                    placeholder="Entre 8 y 16 caracteres"
+                    [class.invalid]="registerFormSubmitted && password.invalid"
+                />
+                <div *ngIf="registerFormSubmitted && password.invalid" class="error">
+                    La contraseña es obligatoria.
+                </div>
             </div>
+
             <div class="input">
-                <label for="confirm-password">Confirmar Contraseña:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required ngModel>
+                <label for="confirmPassword">Confirmar Contraseña:</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    required
+                    [(ngModel)]="confirmPassword"
+                    #confirmPasswordField="ngModel"
+                    [class.invalid]="registerFormSubmitted && confirmPasswordField.invalid"
+                />
+                <div *ngIf="registerFormSubmitted && confirmPasswordField.invalid" class="error">
+                    Debe confirmar su contraseña.
+                </div>
+                <div *ngIf="registerFormSubmitted && confirmPassword !== credentials.password" class="error">
+                    Las contraseñas no coinciden.
+                </div>
             </div>
+
             <div class="input">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required ngModel>
+                <label for="firstname">Nombre:</label>
+                <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    required
+                    [(ngModel)]="credentials.firstname"
+                    #firstname="ngModel"
+                    [class.invalid]="registerFormSubmitted && firstname.invalid"
+                />
+                <div *ngIf="registerFormSubmitted && firstname.invalid" class="error">
+                    El nombre es obligatorio.
+                </div>
             </div>
+
             <div class="input">
-                <input type="submit" value="Registrate">
+                <label for="lastname">Apellido:</label>
+                <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    required
+                    [(ngModel)]="credentials.lastname"
+                    #lastname="ngModel"
+                    [class.invalid]="registerFormSubmitted && lastname.invalid"
+                    
+                />
+                <div *ngIf="registerFormSubmitted && lastname.invalid" class="error">
+                    El apellido es obligatorio.
+                </div>
             </div>
+
+            <div class="input">
+                <input type="submit" value="Regístrate">
+            </div>
+
             <p class="registrate1">&copy; 2025 TFG - Todos los derechos reservados</p>
-            
         </form>
     </div>
-    
-    
 </body>
-
 </html>

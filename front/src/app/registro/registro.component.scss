@@ -15,6 +15,18 @@ body{
     align-items: center;
     height: 100vh;
 }
+input.ng-invalid.ng-touched {
+    border: 2px solid red !important;
+}
+input.invalid {
+    border: 2px solid red !important;
+  }
+
+.error {
+    color: red !important;
+    font-size: 0.9em;
+}
+
 .profile-picture {
     width: 40px;
     height: 40px;
