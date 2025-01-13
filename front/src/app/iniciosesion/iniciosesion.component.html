@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
@@ -14,48 +13,66 @@
 </head>
 
 <body>
-
     <div class="contenedor-formulario contenedor">
         <div class="imagen-formulario">
-            
+            <!-- Aquí puedes agregar una imagen si lo deseas -->
         </div>
         
-        <form class="formulario" >
+        <form class="formulario" (ngSubmit)="login1()" #loginForm="ngForm" novalidate>
             <div class="texto-formulario">
                 <h2>Bienvenido de nuevo</h2>
                 <p>Inicia sesión con tu cuenta</p>
             </div>
+            
             <div class="input">
-                <label for="usuario">Usuario</label>
-                <input placeholder="Ingresa tu nombre" type="text" id="username" name="username" required ngModel>
+                <label for="username">Usuario</label>
+                <input
+                    placeholder="Ingresa tu nombre"
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                    [(ngModel)]="credentials.username"
+                    #username="ngModel"
+                    [class.invalid]="loginFormSubmitted && username.invalid"
+                />
+                <div *ngIf="loginFormSubmitted && username.invalid" class="error">
+                    El campo "Usuario" es obligatorio.
+                </div>
             </div>
-            <div class="input">
-                <label for="contraseña">Contraseña</label>
-                <input placeholder="Ingresa tu contraseña" type="password" id="password" name="password" required ngModel>
-            </div>
-            <div class="password-olvidada">
-                <a class="olvidar">¿Olvidaste tu contraseña?</a>
-              <!--  <div class="popup" >
-                    <div class="popup-content">
-                        <span class="close">&times;</span>
-                        <p>Introduce tu correo electrónico para recuperar tu contraseña:</p>
-                        <form #RecuperarPassPost>
-                            <input type="email" id="email"  name="email" required placeholder="Ingresa tu correo electrónico" ngModel>
-                            <button type="submit" class="button1">Enviar</button>
-                        </form>
-                    </div>
-                </div> -->
-            </div>
-            <div class="input">
-                <input type="submit" value="Iniciar Sesión" (click)="irAPaginaInicio()">
-            </div>
-            <p class="registrate"> ¿No tienes cuenta? <a (click)="irAPaginaRegistro()">Registrate</a></p>
-        
-             <p class="registrate1">&copy; 2025 TFG - Todos los derechos reservados</p>
-        </form>
-        
-    </div>
 
+            <div class="input">
+                <label for="password">Contraseña</label>
+                <input
+                    placeholder="Ingresa tu contraseña"
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    [(ngModel)]="credentials.password"
+                    #password="ngModel"
+                    [class.invalid]="loginFormSubmitted && password.invalid"
+                />
+                <div *ngIf="loginFormSubmitted && password.invalid" class="error">
+                    El campo "Contraseña" es obligatorio.
+                </div>
+            </div>
+
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+           <!-- <div class="password-olvidada">
+                <a class="olvidar">¿Olvidaste tu contraseña?</a>
+            </div>-->
+            
+            <div class="input">
+                <input type="submit" value="Iniciar Sesión" />
+            </div>
+
+            <p class="registrate">
+                ¿No tienes cuenta? <a (click)="irAPaginaRegistro()">Regístrate</a>
+            </p>
+            <p class="registrate1">&copy; 2025 TFG - Todos los derechos reservados</p>
+        </form>
+    </div>
 </body>
 
 </html>

@@ -10,58 +10,60 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenido, Pablo</h1>
-        
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Mi perfil</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <div class="logo-container">
+          <span class="logo-text">Bienvenido, {{ username }}</span>
+        </div>
+        <!-- Navegación -->
+        <ul class="nav-links">
+          <li><a href="/inicio">Inicio</a></li>
+          <li><a href="/inicio">Mi perfil</a></li>
+          <li><a href="/login" (click)="cerrarSesion()">Cerrar sesión</a></li>
+          
+        </ul>
+      </nav>
     </header>
-
-    <main>
+      
+      <main>
         <section class="tarjeta">
-            <h2>Tests por Realizar</h2>
-            <!-- Contenedor de tests -->
-            <div class="test-lista">
-                <!-- Test disponible -->
-                <div class="test">
-                    <div class="info-test">
-                        <p>Test de Matemáticas</p>
-                        <div class="especificaciones">
-                            <span class="tiempo"><i class="fas fa-clock"></i> 30 min</span>
-                            <span class="dificultad dificultad-medio">Medio</span>
-                        </div>
-                    </div>
-                    <button onclick="location.href='test';">Realizar Test</button>
+          <h2>Tests por Realizar</h2>
+          <!-- Contenedor de tests -->
+          <div class="test-lista">
+            <!-- Iterar sobre los tests disponibles -->
+            <div class="test" *ngFor="let test of tests">
+              <div class="info-test">
+                <p>{{test.type}}</p>
+                <div class="especificaciones">
+                  <span class="tiempo"><i class="fas fa-clock"></i> {{ test.duration }}</span>
+                  <span
+                    class="dificultad"
+                    [ngClass]="{
+                      'dificultad-dificil': test.complexity === 'Difícil',
+                      'dificultad-medio': test.complexity === 'Medio',
+                      'dificultad-facil': test.complexity === 'Fácil'
+                    }"
+                  >{{ test.complexity }}
+                  </span>
                 </div>
-
-                <div class="test">
-                    <div class="info-test">
-                        <p>Test de Ciencias</p>
-                        <div class="especificaciones">
-                            <span class="tiempo"><i class="fas fa-clock"></i> 45 min</span>
-                            <span class="dificultad dificultad-dificil">Difícil</span>
-                        </div>
-                    </div>
-                    <button onclick="location.href='#';">Realizar Test</button>
-                </div>
-
-                <!-- Si no hay tests disponibles, muestra este mensaje -->
-                <!-- <div class="sin-tests">
-                    <p>¡Felicidades! Ya has realizado todos los tests.</p>
-                </div> -->
+              </div>
+              <button (click)="realizarTest(test.id)">Realizar Test</button>
             </div>
+      
+            <!-- Si no hay tests disponibles, muestra este mensaje -->
+            <div class="sin-tests" *ngIf="tests.length === 0">
+              <p>¡Felicidades! Ya has realizado todos los tests.</p>
+            </div>
+          </div>
+          <button class="volver" onclick="history.back()">Volver</button>
         </section>
-    </main>
-
-    <footer>
+      </main>
+      
+      
+      <footer>
         <p>&copy; 2025 TFG - Todos los derechos reservados</p>
-    </footer>
+      </footer>
+      
 
-    <!-- FontAwesome CDN for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
 </body>
 </html>
